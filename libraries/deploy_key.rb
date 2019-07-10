@@ -99,6 +99,11 @@ module DeployKey
       raise "Could not get list of keys from repository: #{response.code} #{response.body}"
     end
     keys = JSON.parse response.body
-    keys.find { |k| k["key"].strip == key.strip }
+
+    key = keys['values']&.find do |key|
+      key['type'] == 'deploy_key'
+    end
+
+    key['key']
   end
 end
