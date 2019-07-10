@@ -100,7 +100,7 @@ module DeployKey
     end
     keys = JSON.parse response.body
 
-    key = keys['values']&.find do |key|
+    key = keys['values'].find do |key|
       key['type'] == 'deploy_key'
     end
 
