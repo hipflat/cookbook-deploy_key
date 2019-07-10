@@ -2,7 +2,7 @@ module DeployKeyCookbook
   module Helpers
     module Bitbucket
       def url(path = '')
-        URI.parse("https://bitbucket.org/api/1.0/repositories/#{new_resource.repo}/deploy-keys#{path}")
+        URI.parse("https://api.bitbucket.org/2.0/repositories/#{new_resource.repo}/deploy-keys#{path}")
       end
 
       def add_token(request)
